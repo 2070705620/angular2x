@@ -1,0 +1,45 @@
+header {
+  > ul{
+    display: flex;
+    li{
+      padding: 18px;
+      &.active{
+        background-color: #ccc!important;
+      }
+      &:hover{
+        background-color: #dedede;
+      }
+    }
+  }
+
+}
+.product-list{
+  display: flex;
+  flex-flow: wrap;
+  > li{
+    flex-basis: calc(25% - 10px);
+    border: 1px solid #ccc;
+    margin: 0 0 30px 0;
+    margin-right: 10px;
+    &:nth-of-type(4n){
+      flex-basis: 25%;
+      margin-right: 0;
+      .img{
+        img{ width: calc(100% - 10px);}
+      }
+    }
+    .img{
+      display: block;
+      img{ width: 100%;}
+    }
+    .product-info{
+      padding: 4px 9px;
+      .sells-info{
+        display: flex;
+        flex-flow: row nowrap;
+      }
+    }
+
+
+  }
+}

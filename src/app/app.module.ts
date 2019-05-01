@@ -2,15 +2,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import {HelloworldComponent} from './helloworld.component';
+import {EmplFormComponent} from './empl.form.component';
+
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './shopping/home/home.component';
+import { SearchFormComponent } from './shopping/search-form/search-form.component';
+import { ProductComponent } from './shopping/product/product.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HelloworldComponent,
+    EmplFormComponent,
+    HomeComponent,
+    SearchFormComponent,
+    ProductComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [HomeComponent]
 })
 export class AppModule { }
