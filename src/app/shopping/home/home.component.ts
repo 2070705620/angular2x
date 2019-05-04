@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit, AfterViewChecked, AfterViewInit {
 
     // 渲染之后 类似Vue的$nextTick
     setTimeout(() => {
-      this.productTitleDom.forEach(_ => $clamp(_.nativeElement, {clamp: 2}));
+      this.productTitleDom && this.productTitleDom.forEach(_ => $clamp(_.nativeElement, {clamp: 2}));
     }, 0);
   }
   ngAfterViewInit() {

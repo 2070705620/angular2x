@@ -27,14 +27,16 @@ export class StarsComponent implements OnInit {
     const current = this.current = this.stars[Math.floor(this.rating) / 1];
     // 前
     let cursor = current;
-    if (cursor.prev) {
-      while (cursor.prev) {
-        cursor.prev.toFull();
-        cursor = cursor.prev;
+    if (cursor) {
+      if (cursor.prev) {
+        while (cursor.prev) {
+          cursor.prev.toFull();
+          cursor = cursor.prev;
+        }
       }
-    }
-    if (this.rating % 1 === .5) {
-      this.current.toHalf();
+      if (this.rating % 1 === .5) {
+        this.current.toHalf();
+      }
     }
   }
 

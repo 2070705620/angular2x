@@ -7,7 +7,7 @@ import {Employee, EmployeeService} from './Employee';
   template: `
     <h1>
       <app-empl-form [empl]="employForm"></app-empl-form>
-        Hell{{i}}lllll{{f}}o
+        <a >Home</a>Hell{{i}}lllll{{f}}o
         <span [ngClass]="{active: isGray}">sp</span>
         <em *ngFor="let l of letters">{{l}}</em>
         <input type="text" [(ngModel)]="fSize" (keyup)="c($event)"/>

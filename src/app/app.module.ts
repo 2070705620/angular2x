@@ -26,6 +26,6 @@ import { StarsComponent } from './shopping/stars/stars.component';
     FormsModule
   ],
   providers: [],
-  bootstrap: [HomeComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
