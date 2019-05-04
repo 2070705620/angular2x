@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -21,6 +21,7 @@ export class Product {
   price: number;
   shopname: string;
   loc: string;
+  rating: number;
   constructor(args?: Product) {
     if (args) {
       Object.assign(this, args);

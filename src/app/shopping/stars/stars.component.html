@@ -1,0 +1,18 @@
+<ul class="stars-warpper">
+  <ng-container *ngIf="hovering">
+    <li *ngFor="let starItem of hoverStars">
+      <img [src]="starItem.src"
+           (click)="clickStar($event, starItem)"
+           (mousemove)="hoverOnStar($event, starItem)"
+           (mouseleave)="eventLeaveStar(starItem)"
+      />
+    </li>
+  </ng-container>
+  <ng-container *ngIf="!hovering">
+    <li *ngFor="let star of stars" (mouseenter)="hovering=true">
+      <img [src]="star.src"
+      />
+    </li>
+  </ng-container>
+</ul>
+
