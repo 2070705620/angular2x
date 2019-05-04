@@ -130,7 +130,6 @@ class StarLink {
     this.tail = star;
   }
   get list() {
-    console.log('list...')
     const list: Array<Star> = [];
     let cursor0: Star = this.head;
     do {

@@ -1,4 +1,5 @@
-import {Component, ChangeDetectorRef, Inject} from '@angular/core';
+import {Component, ChangeDetectorRef, Inject, OnInit} from '@angular/core';
+import {ActivatedRoute, Params} from '@angular/router';
 import {AbcdService} from './abcd.service';
 import {Employee, EmployeeService} from './Employee';
 
@@ -7,7 +8,7 @@ import {Employee, EmployeeService} from './Employee';
   template: `
     <h1>
       <app-empl-form [empl]="employForm"></app-empl-form>
-        <a >Home</a>Hell{{i}}lllll{{f}}o
+        <a [routerLink]="['/']">Home</a>Hell{{i}}lllll{{f}}o
         <span [ngClass]="{active: isGray}">sp</span>
         <em *ngFor="let l of letters">{{l}}</em>
         <input type="text" [(ngModel)]="fSize" (keyup)="c($event)"/>
@@ -42,7 +43,7 @@ import {Employee, EmployeeService} from './Employee';
   // ],
   providers: [EmployeeService]
 })
-export class HelloworldComponent {
+export class HelloworldComponent implements OnInit {
   name = 'helllo';
   i = 10;
   f: number;
@@ -56,7 +57,9 @@ export class HelloworldComponent {
   employeeList: Array<Employee> = [];
   constructor(private cd: ChangeDetectorRef,
               private abcdService: AbcdService,
-              private employeeService: EmployeeService) {
+              private employeeService: EmployeeService,
+              private routerInfo: ActivatedRoute
+            ) {
     this.employeeList = employeeService.employeeList;
     cd.markForCheck();
     // setInterval( () => {
@@ -64,6 +67,14 @@ export class HelloworldComponent {
     //   this.employeeList = employeeService.employeeList;
     // }, 1000)
   }
+  ngOnInit() {
+    this.routerInfo.queryParams.subscribe((params: Params) => {
+      console.log('subscribe:' + params.id);
+    });
+
+    // console.log(this.routerInfo.snapshot.params.id);
+  }
+
   execute() {
     this.employeeService.saveOrUpdateEmployee(this.employForm);
     this.employeeList =  this.employeeService.employeeList;

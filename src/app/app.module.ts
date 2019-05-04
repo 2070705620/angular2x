@@ -11,6 +11,9 @@ import { SearchFormComponent } from './shopping/search-form/search-form.componen
 import { ProductComponent } from './shopping/product/product.component';
 import { StarsComponent } from './shopping/stars/stars.component';
 
+import {routesModule} from './app.router';
+import { NotFoundComponent } from './common/pages/not-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,11 +22,13 @@ import { StarsComponent } from './shopping/stars/stars.component';
     HomeComponent,
     SearchFormComponent,
     ProductComponent,
-    StarsComponent
+    StarsComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    routesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

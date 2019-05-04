@@ -4,6 +4,7 @@ import {Component, OnInit, AfterViewInit, QueryList, AfterViewChecked,
   ElementRef} from '@angular/core';
 import {ProductServiceService} from '../product-service.service';
 import {Product} from '../product/product.component';
+import {Router} from '@angular/router';
 
 import * as $clamp from 'clamp-js';
 
@@ -19,7 +20,8 @@ export class HomeComponent implements OnInit, AfterViewChecked, AfterViewInit {
   timeoutInd: number;
   constructor(
     private productServiceService: ProductServiceService,
-    private elementRef: ElementRef) { }
+    private elementRef: ElementRef,
+    private router: Router) { }
 
   @ViewChild('productDom')
   productDom: ElementRef;
@@ -52,6 +54,9 @@ export class HomeComponent implements OnInit, AfterViewChecked, AfterViewInit {
       console.log(width);
       this.productLiWidth = (width - 10 - 10 - 10) / 4 + 0;
     }, 100) as any;
+  }
+  toHello() {
+    this.router.navigate(['/hello']);
   }
 
 }
