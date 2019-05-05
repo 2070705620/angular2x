@@ -15,6 +15,7 @@ import {routesModule} from './app.router';
 import { NotFoundComponent } from './common/pages/not-found.component';
 import { DescriptionComponent } from './shopping/product/description.component';
 import { CommentComponent } from './shopping/product/comment.component';
+import {LoggerService} from './shopping/logger.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { CommentComponent } from './shopping/product/comment.component';
     FormsModule,
     routesModule
   ],
-  providers: [],
+  providers: [/*LoggerService*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

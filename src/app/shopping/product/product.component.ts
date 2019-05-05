@@ -1,18 +1,33 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
+import {LoggerService} from '../logger.service';
+import {MockLoggerService} from '../mock-logger.service';
+import {HttpService} from '../http.service';
 
 @Component({
   /*selector: '...', 页面组件不需要selector*/
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.less']
+  styleUrls: ['./product.component.less'],
+  providers: [{
+    provide: LoggerService, useFactory: (http: HttpService) => {
+      const isDev = Math.random() > .5;
+      if (isDev) {
+        return new MockLoggerService(http);
+      } else {
+        return new LoggerService(http);
+      }
+    }, deps: [HttpService]
+  }]
 })
 export class ProductComponent implements OnInit {
 
   id: number;
-  constructor(private actRoute: ActivatedRoute) { }
+  constructor(private actRoute: ActivatedRoute,
+              private logger: LoggerService) { }
 
   ngOnInit() {
     this.actRoute.params.subscribe((params: Params) => {
+      this.logger.debug(params.id);
       console.log(params);
     });
   }
