@@ -1,15 +1,20 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Params} from '@angular/router';
 
 @Component({
-  selector: 'app-product',
+  /*selector: '...', 页面组件不需要selector*/
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.less']
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  id: number;
+  constructor(private actRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.actRoute.params.subscribe((params: Params) => {
+      console.log(params);
+    });
   }
 
 }

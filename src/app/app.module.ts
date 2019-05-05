@@ -13,6 +13,8 @@ import { StarsComponent } from './shopping/stars/stars.component';
 
 import {routesModule} from './app.router';
 import { NotFoundComponent } from './common/pages/not-found.component';
+import { DescriptionComponent } from './shopping/product/description.component';
+import { CommentComponent } from './shopping/product/comment.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { NotFoundComponent } from './common/pages/not-found.component';
     ProductComponent,
     StarsComponent,
     NotFoundComponent,
+    DescriptionComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,
